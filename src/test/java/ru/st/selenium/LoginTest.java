@@ -18,7 +18,7 @@ public class LoginTest extends ru.st.selenium.pages.TestBase {
   private StringBuffer verificationErrors = new StringBuffer();
 
   @Test
-  public void testUntitled() throws Exception {    
+  public void LoginTest() throws Exception {    
 	driver.get(baseUrl + "/php4dvd/");
     driver.manage().window().maximize();
     WebElement usernameField = driver.findElement(By.id("username"));
@@ -28,22 +28,9 @@ public class LoginTest extends ru.st.selenium.pages.TestBase {
 	passwordField.clear();
     passwordField.sendKeys("admin");
     driver.findElement(By.name("submit")).click();
-    //add new user
-    driver.findElement(By.xpath("//a[contains(text(),'User management')]")).click();
-    driver.findElement(By.id("username")).clear();
-    driver.findElement(By.id("username")).sendKeys("dartland");
-    driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("dartland@rambler.ru");
-    driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys("12345");
-    driver.findElement(By.id("password2")).clear();
-    driver.findElement(By.id("password2")).sendKeys("12345");
-    new Select(driver.findElement(By.name("permission"))).selectByVisibleText("Admin");
-    driver.findElement(By.cssSelector("option[value=\"2\"]")).click();
-    driver.findElement(By.name("submit")).click();
-    //remove new user
-    driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
-    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
+
+    /*driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
+    assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));*/
     Thread.sleep(3000);
   }
 

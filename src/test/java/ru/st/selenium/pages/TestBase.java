@@ -14,6 +14,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 import ru.st.selenium.util.PropertyLoader;
 import ru.st.selenium.util.Browser;
