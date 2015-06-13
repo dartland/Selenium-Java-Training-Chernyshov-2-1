@@ -1,5 +1,6 @@
 package ru.st.selenium;
 
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -13,24 +14,30 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class LoginTest extends ru.st.selenium.pages.TestBase {
+public class RemoveFilmTest extends ru.st.selenium.pages.TestBase {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
   @Test
-  public void LoginTest() throws Exception {    
-	driver.get(baseUrl + "/php4dvd/");
-    driver.manage().window().maximize();
-    WebElement usernameField = driver.findElement(By.id("username"));
-	usernameField.clear();
-    usernameField.sendKeys("admin");
-    WebElement passwordField = driver.findElement(By.name("password"));
-	passwordField.clear();
-    passwordField.sendKeys("admin");
-    driver.findElement(By.name("submit")).click();
+  public void RemoveFilmTest() throws Exception {    
+	
+	//возвращаемся на гланую страницу со списком фильмов  
+	driver.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
+	WebElement FilmConteiner = driver.findElement(By.id("results"));
+	
+	List<WebElement> Films = FilmConteiner.findElements(By.tagName("a"));
 
-    
-    Thread.sleep(1000);
+    for (WebElement Film : Films) {
+    	Film.click();
+ 	 	
+    	driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
+    	Thread.sleep(1000);
+        assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
+    	Thread.sleep(1000);
+    	break;
+    }
+	
+
   }
 
   private boolean isElementPresent(By by) {

@@ -19,7 +19,7 @@ public class AddNewFilmTestPositive extends ru.st.selenium.pages.TestBase {
 
   @Test
   public void AddNewFilmTestPositive() throws Exception {    
-	   // positive test
+	    // positive test
 	    //driver.get(baseUrl + "/php4dvd/");
 	    driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
 	    //обязательные поля
@@ -35,7 +35,7 @@ public class AddNewFilmTestPositive extends ru.st.selenium.pages.TestBase {
 	    driver.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
 
     
-    Thread.sleep(3000);
+	    Thread.sleep(1000);
   }
 
 

@@ -7,6 +7,7 @@
 		    <class name="ru.st.selenium.LoginTest"/>
 		    <class name="ru.st.selenium.AddNewFilmTestPositive"/>
 		    <class name="ru.st.selenium.AddNewFilmTestNegative"/>
+		    <class name="ru.st.selenium.RemoveFilmTest"/>
 		</classes>
 	</test>  
 </suite>

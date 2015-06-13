@@ -46,7 +46,7 @@ public class AddNewFilmTestNegative extends ru.st.selenium.pages.TestBase {
 
 			
     
-    Thread.sleep(3000);
+		Thread.sleep(1000);
   }
   
   
