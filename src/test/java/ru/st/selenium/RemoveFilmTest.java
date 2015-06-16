@@ -23,19 +23,27 @@ public class RemoveFilmTest extends ru.st.selenium.pages.TestBase {
 	
 	//возвращаемся на гланую страницу со списком фильмов  
 	driver.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
-	WebElement FilmConteiner = driver.findElement(By.id("results"));
+	WebElement FilmContainer = driver.findElement(By.id("results"));
 	
-	List<WebElement> Films = FilmConteiner.findElements(By.tagName("a"));
-
-    for (WebElement Film : Films) {
-    	Film.click();
- 	 	
+	List<WebElement> Films = FilmContainer.findElements(By.tagName("a"));
+    
+	if(Films.size()>0) 
+	{
+		Films.get(0).click();
     	driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
+    	Thread.sleep(1000);
+        assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
+
+	}
+	
+/*    for (WebElement Film : Films) {
+    	Film.click();
+     	driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
     	Thread.sleep(1000);
         assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
     	Thread.sleep(1000);
     	break;
-    }
+    }*/
 	
 
   }

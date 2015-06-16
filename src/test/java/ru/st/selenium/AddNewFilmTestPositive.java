@@ -20,7 +20,7 @@ public class AddNewFilmTestPositive extends ru.st.selenium.pages.TestBase {
   @Test
   public void AddNewFilmTestPositive() throws Exception {    
 	    // positive test
-	    //driver.get(baseUrl + "/php4dvd/");
+	    
 	    driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
 	    //обязательные поля
 	    WebElement nameField = driver.findElement(By.name("name"));
@@ -34,8 +34,7 @@ public class AddNewFilmTestPositive extends ru.st.selenium.pages.TestBase {
 	    assertEquals("Selenium 2.0 + Java (2013)", driver.findElement(By.xpath("//h2")).getText());  
 	    driver.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
 
-    
-	    Thread.sleep(1000);
+ 
   }
 
 

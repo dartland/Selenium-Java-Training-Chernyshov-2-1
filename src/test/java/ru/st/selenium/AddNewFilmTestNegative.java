@@ -20,7 +20,8 @@ public class AddNewFilmTestNegative extends ru.st.selenium.pages.TestBase {
 
   @Test
   public void AddNewFilmTestNegative() throws Exception {    
-	  
+	    //возврат на нужную страницу (в случае падения предыдущего теста) 
+	    driver.findElement(By.xpath("//a[contains(text(),'Home')]")).click();
 	    //не заполнено поле year
 	    driver.findElement(By.cssSelector("img[alt=\"Add movie\"]")).click();
 	    // negative test  поля By.name("name")  и By.name("year") обязательные
@@ -44,9 +45,8 @@ public class AddNewFilmTestNegative extends ru.st.selenium.pages.TestBase {
 		Assert.assertTrue(labelErrorName.isDisplayed(), "Bug, label name not found");
 		assertEquals("This field is required", labelErrorName.getText());		
 
-			
-    
-		Thread.sleep(1000);
+
+		
   }
   
   
