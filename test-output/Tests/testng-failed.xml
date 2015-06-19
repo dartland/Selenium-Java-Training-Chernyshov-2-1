@@ -5,19 +5,28 @@
   <test name="Test1(failed)">
     <parameter name="path" value="/"/>
     <classes>
-      <class name="ru.st.selenium.AddNewFilm">
+      <class name="ru.st.selenium.AddNewFilmTestPositive">
         <methods>
-          <include name="AddNewFilmTestPositive"/>
           <include name="init"/>
           <include name="tearDown"/>
-          <include name="AddNewFilmTestNegative"/>
         </methods>
-      </class> <!-- ru.st.selenium.AddNewFilm -->
+      </class> <!-- ru.st.selenium.AddNewFilmTestPositive -->
+      <class name="ru.st.selenium.AddNewFilmTestNegative">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- ru.st.selenium.AddNewFilmTestNegative -->
       <class name="ru.st.selenium.LoginTest">
         <methods>
           <include name="init"/>
         </methods>
       </class> <!-- ru.st.selenium.LoginTest -->
+      <class name="ru.st.selenium.RemoveFilmTest">
+        <methods>
+          <include name="init"/>
+          <include name="RemoveFilmTest"/>
+        </methods>
+      </class> <!-- ru.st.selenium.RemoveFilmTest -->
     </classes>
   </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Tests] -->

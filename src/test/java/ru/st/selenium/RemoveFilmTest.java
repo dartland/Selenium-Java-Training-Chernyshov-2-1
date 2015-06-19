@@ -26,26 +26,17 @@ public class RemoveFilmTest extends ru.st.selenium.pages.TestBase {
 	WebElement FilmContainer = driver.findElement(By.id("results"));
 	
 	List<WebElement> Films = FilmContainer.findElements(By.tagName("a"));
-    
-	if(Films.size()>0) 
-	{
+    int FilmsSize = Films.size();
+	if(FilmsSize>0) {
 		Films.get(0).click();
     	driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
     	Thread.sleep(1000);
         assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
-
 	}
 	
-/*    for (WebElement Film : Films) {
-    	Film.click();
-     	driver.findElement(By.cssSelector("img[alt=\"Remove\"]")).click();
-    	Thread.sleep(1000);
-        assertTrue(closeAlertAndGetItsText().matches("^Are you sure you want to remove this[\\s\\S]$"));
-    	Thread.sleep(1000);
-    	break;
-    }*/
-	
-
+	WebElement NewFilmContainer = driver.findElement(By.id("results"));
+	List<WebElement> NewFilms = NewFilmContainer.findElements(By.tagName("a"));
+	Assert.assertEquals((FilmsSize-NewFilms.size()),1);
   }
 
   private boolean isElementPresent(By by) {

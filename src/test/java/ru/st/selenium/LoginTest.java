@@ -29,8 +29,7 @@ public class LoginTest extends ru.st.selenium.pages.TestBase {
     passwordField.sendKeys("admin");
     driver.findElement(By.name("submit")).click();
 
-    
-    Thread.sleep(1000);
+
   }
 
   private boolean isElementPresent(By by) {
